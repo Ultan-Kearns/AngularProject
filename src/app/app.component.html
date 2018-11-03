@@ -1,11 +1,41 @@
 <!--Code for material icons-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<button id = "mat-menu" mat-button [matMenuTriggerFor]="appmenu">Menu</button>
+<mat-toolbar color = "primary">
+  <span id ="intro"><i>Forum World!</i></span>
+<button id = "mat-menu" mat-raised-button [matMenuTriggerFor]="appmenu">List all forums</button>
 <mat-menu #appmenu="matMenu">
   <button mat-menu-item>
   <mat-icon>forum</mat-icon>
-   <span> Forum 1</span>
-  </button> 
+   <span>General Discussions</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>book</mat-icon>
+    <span>Books</span>
+  </button>
+   <button mat-menu-item>
+    <mat-icon>movie</mat-icon>
+    <span>Movies</span>
+   </button>
+    <button mat-menu-item>
+    <mat-icon>hourglass_empty</mat-icon>
+    <span>History</span>
+    </button>
+     <button mat-menu-item>
+    <mat-icon>pets</mat-icon>
+    <span>Animals</span>
+     </button>
 </mat-menu>
-<h1>Welcome to the Forum</h1>
-
+<button  mat-raised-button  color = "accent">Forum History</button>
+   <button  mat-raised-button  color = "warn">Support</button>
+</mat-toolbar>
+<div id = "content">
+<h1>Welcome to the hompage of the forum</h1>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Check out top stories from each of our forums</mat-card-title>
+    </mat-card-header>
+  <mat-card-content>
+    <p>Include image and forum post here for top post of each forum</p>
+    </mat-card-content>
+</mat-card>
+</div>
