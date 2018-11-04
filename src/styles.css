@@ -1,3 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
-
+/*
+ *default global theme
+ *Also added style that will be used for all forum site.
+ */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+html{
+    font-family:"Arial" !important;
+    font-size: 1.5em;
+}
+button{
+    margin-right:5%;
+}
+#intro{
+    margin-right:5%;
+    font-weight: bold;
+    color: beige;
+    font-family:impact;
+    font-size: 30px;
+}
+#content{
+    text-align:center;
+}
+#toolBar
+{
+    border: 7px solid black;
+}
+h1{
+    font-style:italic;
+    
+}
+

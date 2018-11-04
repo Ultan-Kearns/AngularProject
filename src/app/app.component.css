@@ -1,12 +1,7 @@
 button{
     margin-right:5%;
 }
-#intro{
-    margin-right:5%;
-    font-weight: bold;
-    color: yellow;
-    background-color:black;
-}
-#content{
-    text-align:center;
+h1{
+    font-style:italic;
+    font-family:"arial";
 }

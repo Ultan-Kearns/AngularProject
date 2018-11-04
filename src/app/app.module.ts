@@ -13,30 +13,34 @@ import { MatInputModule,
 	 MatButtonModule,
 	 MatIconModule,
 	 MatToolbarModule,
-	 MatExpansionModule} from '@angular/material';
+	 MatExpansionModule,
+	 MatTooltipModule
+	 TooltipPosition
+       } from '@angular/material';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    BooksComponent,
-    MoviesComponent,
-    HistoryComponent,
-    AnimalsComponent,
-    GeneralDiscussionsComponent
-  ],
-  imports: [
-      BrowserModule,
-      [BrowserAnimationsModule],
-      MatIconModule,
-      MatButtonModule,
-      BrowserAnimationsModule,
-      MatInputModule,
-      MatCardModule,
-      MatButtonModule,
-      MatToolbarModule,
-      MatExpansionModule,
-      MatMenuModule,
-  ],
+    declarations: [
+	AppComponent,
+	BooksComponent,
+	MoviesComponent,
+	HistoryComponent,
+	AnimalsComponent,
+	GeneralDiscussionsComponent
+    ],
+    imports: [
+	BrowserModule,
+	[BrowserAnimationsModule],
+	MatIconModule,
+	MatButtonModule,
+	BrowserAnimationsModule,
+	MatInputModule,
+	MatCardModule,
+	MatButtonModule,
+	MatToolbarModule,
+	MatExpansionModule,
+	MatMenuModule,
+	MatTooltipModule,
+    ],
     providers: [],
     bootstrap: [AppComponent]
 })
