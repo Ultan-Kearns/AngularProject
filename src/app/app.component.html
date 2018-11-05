@@ -1,41 +1,42 @@
 <!--Code for material icons-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<mat-toolbar color = "primary" id = "toolBar">
-  <span id ="intro"><i>Forum World!</i></span>
-<button id = "mat-menu" mat-raised-button [matMenuTriggerFor]="appmenu"matTooltip = "List all forums on our site">Forums</button>
-<mat-menu #appmenu="matMenu">
-  <button mat-menu-item matTooltip = "Talk with the best minds on our forum" matTooltipPosition= "right">
-  <mat-icon>forum</mat-icon>
-   <span>General Discussions</span>
-  </button>
-  <button mat-menu-item matTooltip = "Chat with other bookworms" matTooltipPosition= "right">
-    <mat-icon>book</mat-icon>
-    <span>Books</span>
-  </button>
-   <button mat-menu-item matTooltip = "Chat about films with movie experts" matTooltipPosition= "right">
-    <mat-icon>movie</mat-icon>
-    <span>Movies</span>
-   </button>
-    <button mat-menu-item matTooltip = "Those who don't know history are destined to repeat it" matTooltipPosition= "right">
-    <mat-icon>hourglass_empty</mat-icon>
-    <span>History</span>
+<mat-toolbar color="primary" id="toolBar">
+  <span id="intro"><i>Forum World!</i></span>
+  <button id="mat-menu" mat-raised-button [matMenuTriggerFor]="appmenu" matTooltip="List all forums on our site">Forums</button>
+  <mat-menu #appmenu="matMenu">
+    <button mat-menu-item matTooltip="Talk with the best minds on our forum" matTooltipPosition="right">
+      <mat-icon>forum</mat-icon>
+      <span>General Discussions</span>
     </button>
-     <button mat-menu-item matTooltip = "Talk with fellow animal lovers" matTooltipPosition= "right">
-    <mat-icon>pets</mat-icon>
-    <span>Animals</span>
-     </button>
-</mat-menu>
-<button  mat-raised-button  color = "accent" matTooltip = "History of Forum World!">Forum History</button>
-   <button  mat-raised-button  color = "warn" matTooltip = "Page to learn about how to use forum">Support</button>
+    <button mat-menu-item matTooltip="Chat with other bookworms" matTooltipPosition="right">
+      <mat-icon>book</mat-icon>
+      <span>Books</span>
+    </button>
+    <button mat-menu-item matTooltip="Chat about films with movie experts" matTooltipPosition="right" [routerLink]="['/movies']">
+      <mat-icon>movie</mat-icon>
+      <span>Movies</span>
+    </button>
+    <button mat-menu-item matTooltip="Those who don't know history are destined to repeat it" matTooltipPosition="right">
+      <mat-icon>hourglass_empty</mat-icon>
+      <span>History</span>
+    </button>
+    <button mat-menu-item matTooltip="Talk with fellow animal lovers" matTooltipPosition="right">
+      <mat-icon>pets</mat-icon>
+      <span>Animals</span>
+    </button>
+  </mat-menu>
+  <button mat-raised-button color="accent" matTooltip="History of Forum World!">Forum History</button>
+  <button mat-raised-button color="warn" matTooltip="Page to learn about how to use forum">Support</button>
 </mat-toolbar>
-<div id = "content">
-<h1>Hottest posts from our forums</h1>
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Check out top stories from each of our forums</mat-card-title>
+<div id="content">
+  <h1>Hottest posts from our forums</h1>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Check out top stories from each of our forums</mat-card-title>
     </mat-card-header>
-  <mat-card-content>
-    <p>Include image and forum post here for top post of each forum</p>
+    <mat-card-content>
+      <p>Include image and forum post here for top post of each forum</p>
     </mat-card-content>
-</mat-card>
+  </mat-card>
 </div>
+<router-outlet></router-outlet>

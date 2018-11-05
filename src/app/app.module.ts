@@ -14,9 +14,10 @@ import { MatInputModule,
 	 MatIconModule,
 	 MatToolbarModule,
 	 MatExpansionModule,
-	 MatTooltipModule
+	 MatTooltipModule,
 	 TooltipPosition
        } from '@angular/material';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
     declarations: [
@@ -40,6 +41,7 @@ import { MatInputModule,
 	MatExpansionModule,
 	MatMenuModule,
 	MatTooltipModule,
+	AppRoutingModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
