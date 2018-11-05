@@ -4,11 +4,11 @@
   <span id="intro"><i>Forum World!</i></span>
   <button id="mat-menu" mat-raised-button [matMenuTriggerFor]="appmenu" matTooltip="List all forums on our site">Forums</button>
   <mat-menu #appmenu="matMenu">
-    <button mat-menu-item matTooltip="Talk with the best minds on our forum" matTooltipPosition="right">
+    <button mat-menu-item matTooltip="Talk with the best minds on our forum" matTooltipPosition="right" [routerLink]="['/generalDiscussions']">
       <mat-icon>forum</mat-icon>
       <span>General Discussions</span>
     </button>
-    <button mat-menu-item matTooltip="Chat with other bookworms" matTooltipPosition="right">
+    <button mat-menu-item matTooltip="Chat with other bookworms" matTooltipPosition="right" [routerLink]="['/books']">
       <mat-icon>book</mat-icon>
       <span>Books</span>
     </button>
@@ -16,11 +16,11 @@
       <mat-icon>movie</mat-icon>
       <span>Movies</span>
     </button>
-    <button mat-menu-item matTooltip="Those who don't know history are destined to repeat it" matTooltipPosition="right">
+    <button mat-menu-item matTooltip="Those who don't know history are destined to repeat it" matTooltipPosition="right" [routerLink]="['/history']">
       <mat-icon>hourglass_empty</mat-icon>
       <span>History</span>
     </button>
-    <button mat-menu-item matTooltip="Talk with fellow animal lovers" matTooltipPosition="right">
+    <button mat-menu-item matTooltip="Talk with fellow animal lovers" matTooltipPosition="right" [routerLink]="['/animals']">
       <mat-icon>pets</mat-icon>
       <span>Animals</span>
     </button>

@@ -6,15 +6,31 @@ import { BooksComponent } from './books/books.component';
 import { MoviesComponent } from './movies/movies.component';
 import { HistoryComponent } from './history/history.component';
 import { AnimalsComponent } from './animals/animals.component';
+import {GeneralDiscussionsComponent} from './general-discussions/general-discussions.component';
 const routes: Routes = [
-  { path: 'movies', component: MoviesComponent }
+  {
+    path: 'movies', component: MoviesComponent
+  },
+  {
+    path: 'books', component: BooksComponent
+  },
+  {
+    path: 'history',component: HistoryComponent
+  },
+  {
+    path: 'animals', component: AnimalsComponent
+  },
+  {
+    path: 'generalDiscussions', component: GeneralDiscussionsComponent
+  }
+
 ];
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forRoot(routes)
   ],
-  exports:[
+  exports: [
     RouterModule,
   ],
   declarations: []
