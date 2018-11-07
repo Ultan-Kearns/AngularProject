@@ -18,6 +18,8 @@ import { MatInputModule,
 	 TooltipPosition
        } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
+import { SupportComponent } from './support/support.component';
+import { ForumHistoryComponent } from './forum-history/forum-history.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +28,9 @@ import { AppRoutingModule } from './app-routing.module';
 	MoviesComponent,
 	HistoryComponent,
 	AnimalsComponent,
-	GeneralDiscussionsComponent
+	GeneralDiscussionsComponent,
+	SupportComponent,
+	ForumHistoryComponent
     ],
     imports: [
 	BrowserModule,

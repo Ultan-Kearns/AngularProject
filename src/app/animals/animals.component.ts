@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnimalsComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    let forumTitle:String = "Welcome to the animals forum - Talk with fellow animal love!";
+   }
 
   ngOnInit() {
   }

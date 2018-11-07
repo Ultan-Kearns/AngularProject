@@ -7,6 +7,8 @@ import { MoviesComponent } from './movies/movies.component';
 import { HistoryComponent } from './history/history.component';
 import { AnimalsComponent } from './animals/animals.component';
 import {GeneralDiscussionsComponent} from './general-discussions/general-discussions.component';
+import { ForumHistoryComponent } from './forum-history/forum-history.component';
+import { SupportComponent } from './support/support.component';
 const routes: Routes = [
   {
     path: 'movies', component: MoviesComponent
@@ -22,6 +24,12 @@ const routes: Routes = [
   },
   {
     path: 'generalDiscussions', component: GeneralDiscussionsComponent
+  },
+  {
+    path: 'forumHistory', component: ForumHistoryComponent
+  },
+  {
+    path: 'support', component: SupportComponent
   }
 
 ];

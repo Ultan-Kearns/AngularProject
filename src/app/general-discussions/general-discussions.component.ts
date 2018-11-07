@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GeneralDiscussionsComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    let forumTitle:String = "Welcome to the General Discussions forum - A place to relax and chit chat";
+
+  }
 
   ngOnInit() {
   }
-
 }

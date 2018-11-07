@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    let forumTitle:String = "Welcome to the history forum - History repeats itself";
+ }
 
   ngOnInit() {
   }

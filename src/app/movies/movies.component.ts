@@ -5,11 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css']
 })
-export class MoviesComponent implements OnInit {
 
-  constructor() { }
+export class MoviesComponent implements OnInit {
+  constructor() {
+      let forumTitle:String = "Welcome to the movie forum - BRING OUT THE POPCORN!";
+  }
 
   ngOnInit() {
   }
-
 }
