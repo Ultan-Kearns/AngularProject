@@ -4,16 +4,35 @@ mat-card-header{
   font-family: sans-serif;
 }
 mat-card-subtitle{
-    font-size: 15px;
+    font-size: 10px;
     font-weight: bold;
     font-family: sans-serif;
 }
 mat-card-content{
-  font-size: 25px;
+  font-size: 12px;
   font-weight: bold;
   font-family: sans-serif;
 }
 mat-card{
-  margin-bottom: 10%;
-  border: 10px solid black;
+    border: 10px solid black;
+    margin-bottom: 30%;
+    height: 500px;
+    width: 500px;
+}
+#tier1{
+  float: left;
+  width:50%;
+}
+/*
+*Tier 1 and tier2 for mat card layout
+*/
+#tier2{
+  width:50%;
+  position:absolute;
+  margin-left:50%;
+}
+img{
+  height: 300px;
+  width: 100%;
+  margin-left: 0.5%;
 }
