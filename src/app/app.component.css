@@ -5,3 +5,13 @@ h1{
     font-style:italic;
     font-family:"arial";
 }
+
+mat-form-field,textarea{
+  margin: 2%;
+  width: 200%;
+  height: 100%;
+}
+#postArea{
+  border: 2px solid black;
+  margin-bottom: 2%;
+}

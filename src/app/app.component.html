@@ -31,6 +31,7 @@
 <div id="content">
   <h1>Hottest posts from our forums</h1>
   <mat-card>
+    <h2>{{forumTitle}}</h2>
     <mat-card-header>
       <mat-card-title>Check out top stories from each of our forums</mat-card-title>
     </mat-card-header>
@@ -39,5 +40,15 @@
     </mat-card-content>
   </mat-card>
 </div>
-<h2>{{forumTitle}}</h2>
+<button mat-raised-button color = "accent" onclick = "showPost()">Make post</button>
+<form id = "postArea" hidden = "true">
+  <mat-form-field id = "postTitle">
+    <h3>Enter posts here:</h3>
+    <textarea matInput placeholder="Enter post title: "></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Enter post content: " id = "postContent"></textarea>
+  </mat-form-field>
+  <button mat-raised-button color = "accent">Submit Post</button>
+</form>
 <router-outlet></router-outlet>
