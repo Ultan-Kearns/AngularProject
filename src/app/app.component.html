@@ -41,7 +41,7 @@
   </mat-card>
 </div>
 <button mat-raised-button color = "accent" (click) = "showPost()">Make post</button>
-<form id = "postArea" *ngIf="hideElement">
+<form id = "postArea" *ngIf="hideElement" (submit)="onAddPost(postForm)" #postForm="ngForm">
   <h3>Enter posts here:</h3>
   <mat-form-field id = "postTitle">
     <textarea matInput placeholder="Enter post title: "></textarea>

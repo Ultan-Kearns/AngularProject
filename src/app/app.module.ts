@@ -20,7 +20,8 @@ import { MatInputModule,
 import { AppRoutingModule } from './app-routing.module';
 import { SupportComponent } from './support/support.component';
 import { ForumHistoryComponent } from './forum-history/forum-history.component';
-
+import {PostService} from './services/post.service';
+import { FormsModule }   from '@angular/forms';
 @NgModule({
     declarations: [
 	AppComponent,
@@ -46,8 +47,9 @@ import { ForumHistoryComponent } from './forum-history/forum-history.component';
 	MatMenuModule,
 	MatTooltipModule,
 	AppRoutingModule,
+	FormsModule
     ],
-    providers: [],
+    providers: [PostService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
