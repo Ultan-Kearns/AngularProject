@@ -6,18 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-}
-function showPost(){
-  alert("Hi")
-  var show = document.getElementById("postArea");
-  if(show.style.hidden == true)
-  {
-    show.style.hidden = false;
-  }
-  else
-  {
-    show.style.content = "Hide posts";
-    show.style.hidden = true;
+    private hideElement:boolean;
+  showPost(){
+    if(this.hideElement)
+    {
+      this.hideElement = false;
+    }
+    else
+    {
+      this.hideElement = true;
+    }
+    alert(this.hideElement);
   }
 }

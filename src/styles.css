@@ -27,6 +27,6 @@ button{
 }
 h1{
     font-style:italic;
-    
-}
 
+}
+[hidden] { display: none !important;}
