@@ -4,7 +4,8 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb://ultan:hello123@ds115533.mlab.com:15533/mongo';
+//user ultan pass 123456a
+var mongoDB = 'mongodb://ultan:ultan1@ds151513.mlab.com:51513/angularproject';
 mongoose.connect(mongoDB);
 
 var Schema = mongoose.Schema;

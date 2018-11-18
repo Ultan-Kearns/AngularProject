@@ -16,7 +16,8 @@
       <mat-icon>movie</mat-icon>
       <span>Movies</span>
     </button>
-    <button mat-menu-item matTooltip="Those who don't know history are destined to repeat it" matTooltipPosition="right" [routerLink]="['/history']">
+    <button mat-menu-item matTooltip="Those who don't know history are destined to repeat it" matTooltipPosition="right"
+      [routerLink]="['/history']">
       <mat-icon>hourglass_empty</mat-icon>
       <span>History</span>
     </button>
@@ -25,7 +26,8 @@
       <span>Animals</span>
     </button>
   </mat-menu>
-  <button mat-raised-button color="accent" matTooltip="History of Forum World!" [routerLink]="['/forumHistory']">Forum History</button>
+  <button mat-raised-button color="accent" matTooltip="History of Forum World!" [routerLink]="['/forumHistory']">Forum
+    History</button>
   <button mat-raised-button color="warn" matTooltip="Page to learn about how to use forum" [routerLink]="['/support']">Support</button>
 </mat-toolbar>
 <div id="content">
@@ -40,15 +42,16 @@
     </mat-card-content>
   </mat-card>
 </div>
-<button mat-raised-button color = "accent" (click) = "showPost()">Make post</button>
-<form id = "postArea" *ngIf="hideElement" (submit)="onAddPost(postForm)" #postForm="ngForm">
+<button mat-raised-button color="accent" (click)="showPost()" id="postButton">{{postText}}</button>
+<form id="postArea" (submit)="onAddPost(postForm)" *ngIf="hideElement" #postForm="ngForm">
   <h3>Enter posts here:</h3>
-  <mat-form-field id = "postTitle">
-    <textarea matInput placeholder="Enter post title: "></textarea>
+  <mat-form-field id="postTitle">
+    <textarea matInput placeholder="Enter post title: " name="title" id="title" ngModel required #title="ngModel" rows="4"></textarea>
   </mat-form-field>
   <mat-form-field>
-    <textarea matInput placeholder="Enter post content: " id = "postContent"></textarea>
+    <textarea matInput placeholder="Enter post content: " id="post" name="content" ngModel required #content="ngModel"
+      rows="4"></textarea>
   </mat-form-field>
-  <button mat-raised-button color = "accent">Submit Post</button>
+  <button mat-raised-button color="accent" type="submit">Submit Post</button>
 </form>
 <router-outlet></router-outlet>

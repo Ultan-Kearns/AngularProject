@@ -22,6 +22,7 @@ import { SupportComponent } from './support/support.component';
 import { ForumHistoryComponent } from './forum-history/forum-history.component';
 import {PostService} from './services/post.service';
 import { FormsModule }   from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
     declarations: [
 	AppComponent,
@@ -31,7 +32,7 @@ import { FormsModule }   from '@angular/forms';
 	AnimalsComponent,
 	GeneralDiscussionsComponent,
 	SupportComponent,
-	ForumHistoryComponent
+	ForumHistoryComponent,
     ],
     imports: [
 	BrowserModule,
@@ -47,7 +48,8 @@ import { FormsModule }   from '@angular/forms';
 	MatMenuModule,
 	MatTooltipModule,
 	AppRoutingModule,
-	FormsModule
+	FormsModule,
+	HttpClientModule,
     ],
     providers: [PostService],
     bootstrap: [AppComponent]

@@ -15,19 +15,7 @@ export class PostService {
 
   addPost(title: string, content: string): Observable<any> {
     const post: Post = {title: title, content: content};
+    alert(post.content);
     return this.http.post("http://localhost:8081/api/posts",post);
-  }
-
-  deletePost(id: String): Observable<any> {
-    return this.http.delete("http://localhost:8081/api/posts/"+id);
-  }
-
-  getPost(id:String): Observable<any> {
-    return this.http.get("http://localhost:8081/api/posts/"+id);
-  }
-
-  updatePost(id:String, title: string, content: string): Observable<any> {
-    const post: Post = {title: title, content: content};
-  return this.http.put("http://localhost:8081/api/posts/"+id, post);
   }
 }
