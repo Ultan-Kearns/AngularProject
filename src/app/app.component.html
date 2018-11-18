@@ -43,7 +43,8 @@
   </mat-card>
 </div>
 <button mat-raised-button color="accent" (click)="showPost()" id="postButton">{{postText}}</button>
-<form id="postArea" (submit)="onAddPost(postForm)" *ngIf="hideElement" #postForm="ngForm">
+<div id="postArea">
+<form (submit)="onAddPost(postForm)" *ngIf="hideElement" #postForm="ngForm">
   <h3>Enter posts here:</h3>
   <mat-form-field id="postTitle">
     <textarea matInput placeholder="Enter post title: " name="title" id="title" ngModel required #title="ngModel" rows="4"></textarea>
@@ -54,4 +55,5 @@
   </mat-form-field>
   <button mat-raised-button color="accent" type="submit">Submit Post</button>
 </form>
+</div>
 <router-outlet></router-outlet>

@@ -15,7 +15,6 @@ export class PostService {
 
   addPost(title: string, content: string): Observable<any> {
     const post: Post = {title: title, content: content};
-    alert(post.content);
     return this.http.post("http://localhost:8081/api/posts",post);
   }
 }

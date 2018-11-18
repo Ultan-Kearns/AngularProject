@@ -10,7 +10,7 @@ import {PostService} from '../app/services/post.service';
 export class AppComponent implements OnInit{
 
   //constructor not detecting this!
-  private ps:PostService
+  private ps:PostService;
   //for showing and hiding postArea
     private hideElement:boolean;
     private postText:string = "Make Post";
@@ -28,16 +28,12 @@ export class AppComponent implements OnInit{
       this.postText = "Hide post area";
     }
   }
+  ngOnInit() {
 
+  }
   onAddPost(form: NgForm) {
-
+    alert("Post added");
     this.ps.addPost(form.value.title, form.value.content).subscribe();
     console.log(form.value);
-    form.resetForm();
-  }
-  ngOnInit() {
-    this.ps.getPostsData().subscribe(data => {
-        this.posts = data;
-    });
   }
 }
