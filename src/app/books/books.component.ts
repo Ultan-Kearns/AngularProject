@@ -34,7 +34,7 @@ export class BooksComponent implements OnInit {
   }
   onAddPost(form: NgForm) {
     console.log(form.value);
-    this.ps.addPost(form.value.title, form.value.content).subscribe();
+    this.ps.addPost(form.value.title, form.value.content,"Books").subscribe();
     alert("post added please refresh page");
   }
 

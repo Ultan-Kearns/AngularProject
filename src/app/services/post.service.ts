@@ -13,9 +13,9 @@ export class PostService {
       return this.http.get("http://localhost:8081/api/posts");
     }
 
-  addPost(title: string, content: string): Observable<any> {
+  addPost(title: string, content: string,category:string): Observable<any> {
 
-    const post: Post = {title: title, content: content};
+    const post: Post = {title: title, content: content,category: category};
     return this.http.post("http://localhost:8081/api/posts/",post);
   }
 }

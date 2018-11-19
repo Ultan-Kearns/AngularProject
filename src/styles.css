@@ -33,3 +33,7 @@ h1{
 #postArea{
     margin-bottom: 2%;
   }
+  mat-card{
+    margin-bottom: 2%;
+    border: 4px solid black;
+  }

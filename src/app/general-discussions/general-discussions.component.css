@@ -8,3 +8,7 @@ mat-form-field,textarea{
   #title,#post{
     resize: none;
   }
+  mat-card{
+    margin-bottom: 2%;
+    border: 4px solid black;
+  }

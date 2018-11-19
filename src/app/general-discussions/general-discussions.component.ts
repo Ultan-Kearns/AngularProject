@@ -10,7 +10,6 @@ export class GeneralDiscussionsComponent implements OnInit {
   posts:any = [];
   private hideElement:boolean;
   private postText:string = "Make Post";
-
   constructor(private ps:PostService) {
     let forumTitle:String = "Welcome to the General Discussions forum - A place to relax and chit chat";
 
@@ -37,7 +36,7 @@ export class GeneralDiscussionsComponent implements OnInit {
   }
   onAddPost(form: NgForm) {
     console.log(form.value);
-    this.ps.addPost(form.value.title, form.value.content).subscribe();
+    this.ps.addPost(form.value.title, form.value.content,"General").subscribe();
     alert("post added please refresh page");
   }
 }

@@ -4,14 +4,15 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-//user ultan pass 123456a
+//user ultan pass ultan1
 var mongoDB = 'mongodb://ultan:ultan1@ds151513.mlab.com:51513/angularproject';
 mongoose.connect(mongoDB);
 
 var Schema = mongoose.Schema;
 var postSchema = new Schema({
     title: String,
-    content: String
+    content: String,
+    category: String,
 })
 var PostModel = mongoose.model('post', postSchema);
 
@@ -42,12 +43,13 @@ app.post('/api/posts', function(req, res){
     console.log("post successful");
     console.log(req.body.title);
     console.log(req.body.content);
-
+    console.log(req.body.category);
     PostModel.create({
         title: req.body.title,
-        content: req.body.content
+        content: req.body.content,
+        category: req.body.category,
     });
-    res.send('Item added');
+    res.send(200,'Item added');
 
 
 })
@@ -64,7 +66,7 @@ app.get('/api/posts/:id', function(req, res){
     //PostModel.find({_id : req.params.id},
     PostModel.findById(req.params.id,
         function (err, data) {
-            res.json(data);
+            res.json(404,'Post not found');
         });
 })
 
@@ -75,7 +77,7 @@ app.put('/api/posts/:id', function(req, res){
 
     PostModel.findByIdAndUpdate(req.params.id, req.body,
         function(err, data){
-            res.send(data);
+            res.send(404,'Post not found ' + data);
         })
 })
 
@@ -86,7 +88,7 @@ app.delete('/api/posts/:id', function(req, res){
     function(err, data)
     {
         if(err)
-            res.send(err);
+            res.send('Error deleting post');
         res.send(data);
     })
 })
