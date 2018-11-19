@@ -38,5 +38,6 @@ export class GeneralDiscussionsComponent implements OnInit {
   onAddPost(form: NgForm) {
     console.log(form.value);
     this.ps.addPost(form.value.title, form.value.content).subscribe();
+    alert("post added please refresh page");
   }
 }
