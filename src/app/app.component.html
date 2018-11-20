@@ -31,15 +31,11 @@
   <button mat-raised-button color="warn" matTooltip="Page to learn about how to use forum" [routerLink]="['/support']">Support</button>
 </mat-toolbar>
 <div id="content">
-  <h1>Hottest posts from our forums</h1>
-  <mat-card>
-    <h2>{{forumTitle}}</h2>
-    <mat-card-header>
-      <mat-card-title>Check out top stories from each of our forums</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>Include image and forum post here for top post of each forum{{title}}</p>
-    </mat-card-content>
-  </mat-card>
-</div>
+    <mat-card>
+        <h2>{{forumTitle}}</h2>
+        <mat-card-content>
+          <img mat-card-image src="../../Images/banner.jpg" alt="a picture of the jungle" height="400px" width="300px">
+        </mat-card-content>
+      </mat-card>
+    </div>
 <router-outlet></router-outlet>
