@@ -38,4 +38,11 @@ export class BooksComponent implements OnInit {
     alert("post added please refresh page");
   }
 
+  onDelete(id:String){
+    console.log("Delete called "+ id);
+    this.ps.deletePost(id).subscribe(() =>
+    {
+       this.ngOnInit();
+    })
+  }
 }

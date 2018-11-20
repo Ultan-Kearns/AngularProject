@@ -39,4 +39,12 @@ export class GeneralDiscussionsComponent implements OnInit {
     this.ps.addPost(form.value.title, form.value.content,"General").subscribe();
     alert("post added please refresh page");
   }
+
+  onDelete(id:String){
+    console.log("Delete called "+ id);
+    this.ps.deletePost(id).subscribe(() =>
+    {
+       this.ngOnInit();
+    })
+  }
 }

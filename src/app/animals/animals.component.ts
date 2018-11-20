@@ -37,7 +37,16 @@ export class AnimalsComponent implements OnInit {
   onAddPost(form: NgForm) {
     console.log(form.value);
     this.ps.addPost(form.value.title, form.value.content,"Animals").subscribe();
-    alert("post added please refresh page");
+    alert("post added");
+    this.ngOnInit();
+  }
+
+  onDelete(id:String){
+    console.log("Delete called "+ id);
+    this.ps.deletePost(id).subscribe(() =>
+    {
+       this.ngOnInit();
+    })
   }
 
 }

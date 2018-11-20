@@ -22,6 +22,7 @@ export class MoviesComponent implements OnInit {
 });
 }
 showPost(){
+  //add hide button to forums for each post
   //show post area to user
   if(this.hideElement)
   {
@@ -38,5 +39,13 @@ onAddPost(form: NgForm) {
   console.log(form.value);
   this.ps.addPost(form.value.title, form.value.content,"Movies").subscribe();
   alert("post added please refresh page");
+}
+
+onDelete(id:String){
+  console.log("Delete called "+ id);
+  this.ps.deletePost(id).subscribe(() =>
+  {
+     this.ngOnInit();
+  })
 }
 }

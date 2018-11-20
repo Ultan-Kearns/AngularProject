@@ -57,8 +57,35 @@
     Forums are maintained by independent owners and sustained by users like you.
   </mat-card-content>
 </mat-card>
-<h2>Submit your complaints/queries here:</h2>
-<textarea placeholder="Queries/Complaints for devteam">
-</textarea>
-<br>
-<button mat-raised-button color="accent" matTooltip="Submit to dev team">Submit</button>
+<form (submit)="onAddPost(postForm)" #postForm="ngForm" id="postArea">
+  <h3>Title of complaint:</h3>
+  <mat-form-field id="postTitle">
+    <textarea matInput placeholder="Enter subject of complaint: " name="title" id="title" ngModel required #title="ngModel"
+      rows="4" minlength="1"></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Enter details of complaint: " name="content" ngModel required #content="ngModel"
+      rows="4" minlength="1"></textarea>
+  </mat-form-field>
+  <br>
+  <button mat-raised-button color="accent" matTooltip="Submit to dev team">Submit</button>
+</form>
+<button id="showBugs" (click) = "showBugs()">{{buttonText}}</button>
+<h3>Error list to fix developers</h3>
+<div *ngIf = "hideElement">
+  <div *ngFor="let post of posts">
+    <div *ngIf="post.category == 'Support'">
+      <mat-card>
+        <mat-card-title>
+          {{ post.title }}
+        </mat-card-title>
+        <mat-card-content>
+          <p>{{ post.content }}</p>
+        </mat-card-content>
+        <mat-action-row>
+          <button mat-button (click)="onDelete(post._id)" color="warn">DELETE</button>
+        </mat-action-row>
+      </mat-card>
+    </div>
+  </div>
+</div>
