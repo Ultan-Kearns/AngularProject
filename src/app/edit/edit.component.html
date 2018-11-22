@@ -8,6 +8,7 @@
         ngModel={{post.title}}
         required
         #title="ngModel"
+        placeholder="Enter post title: " 
         >
     </mat-form-field>
     <mat-form-field>
@@ -17,7 +18,8 @@
         name="content"
         ngModel={{post.content}}
         required
-        #content="ngModel">
+        #content="ngModel"
+        placeholder="Enter post content: ">
       </textarea>
       <mat-error *ngIf="content.invalid">Please enter a post title.</mat-error>
     </mat-form-field>

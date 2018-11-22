@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(function(req, res, next) {
+    //to allow cross origin requests
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers",
@@ -60,7 +61,6 @@ app.get('/api/posts/:id', function(req, res){
     //PostModel.find({_id : req.params.id},
     PostModel.findById(req.params.id,
         function (err, data) {
-            res.json(404,'Post not found');
         });
 })
 
@@ -71,7 +71,6 @@ app.put('/api/posts/:id', function(req, res){
 
     PostModel.findByIdAndUpdate(req.params.id, req.body,
         function(err, data){
-            res.send(404,'Post not found ' + data);
         })
 })
 
@@ -83,7 +82,6 @@ app.delete('/api/posts/:id', function(req, res){
     {
         if(err)
             res.send('Error deleting post');
-        res.send(500,data);
     })
 })
 

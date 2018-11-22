@@ -18,22 +18,20 @@ export class EditComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private ps: PostService) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot.params['id']);
+    console.log( "this is the ID " + this.route.snapshot.params['id']);
+    this.post.id = this.route.snapshot.params['id'];
     this.ps.getPost(this.route.snapshot.params['id']).subscribe(data => {
       this.post = data;
-      console.log(this.post);
+      console.log(this.post + "POST");
       this.myTitle = this.post.title;
-      console.log("message" + this.myTitle);
-      this.category = this.post.category;
-
+      console.log("message" + this.post.id);
     });
   }
   //need function to edit post on click
   editPosts(form: NgForm) {
-    console.log("Edit called " + this.post._id);
-    this.ps.editPost(this.post._id, this.myTitle, this.myContent, this.category).subscribe(() => {
-      this.router.navigate['/' + this.category];
-    })
-
+    console.log("IN EDIT + PID " + this.post.id);
+    this.ps.editPost(this.post.id, form.value.title, form.value.content, this.category).subscribe(() => {
+      this.router.navigate['/'];
+    });
   }
 }
