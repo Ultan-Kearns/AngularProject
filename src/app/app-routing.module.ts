@@ -8,6 +8,7 @@ import { AnimalsComponent } from './animals/animals.component';
 import {GeneralDiscussionsComponent} from './general-discussions/general-discussions.component';
 import { ForumHistoryComponent } from './forum-history/forum-history.component';
 import { SupportComponent } from './support/support.component';
+import { EditComponent } from '../app/edit/edit.component';
 const routes: Routes = [
   {
     path: 'movies', component: MoviesComponent
@@ -29,6 +30,10 @@ const routes: Routes = [
   },
   {
     path: 'support', component: SupportComponent
+  },
+  {
+    path: 'edit/:id',
+    component: EditComponent
   }
 
 ];

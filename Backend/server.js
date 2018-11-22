@@ -29,14 +29,8 @@ app.use(function(req, res, next) {
     next();
     });
 
-app.post('/name', function(req, res){
-    res.send("Hello you sent " +
-    req.body.firstname + " " +
-    req.body.lastname);
-})
-
 app.get('/', function (req, res) {
-   res.send('Hello from Express');
+   res.send('Server works');
 })
 
 app.post('/api/posts', function(req, res){
@@ -89,7 +83,7 @@ app.delete('/api/posts/:id', function(req, res){
     {
         if(err)
             res.send('Error deleting post');
-        res.send(data);
+        res.send(500,data);
     })
 })
 

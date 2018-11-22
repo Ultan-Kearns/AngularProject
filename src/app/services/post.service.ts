@@ -22,5 +22,11 @@ export class PostService {
   deletePost(id: String): Observable<any> {
     return this.http.delete("http://localhost:8081/api/posts/" + id);
   }
-  
+  getPost(id:String): Observable<any> {
+    return this.http.get("http://localhost:8081/api/posts/"+id);
+  }
+  editPost(id:String,title:string, content:string,category:string){
+    const post: Post = {title: title, content: content,category: category};
+    return this.http.put("http://localhost:8081/api/posts/"+id, post);
+  }
 }

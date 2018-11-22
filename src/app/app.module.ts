@@ -23,6 +23,7 @@ import { ForumHistoryComponent } from './forum-history/forum-history.component';
 import {PostService} from './services/post.service';
 import { FormsModule }   from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { EditComponent } from './edit/edit.component';
 @NgModule({
     declarations: [
 	AppComponent,
@@ -33,6 +34,7 @@ import {HttpClientModule} from '@angular/common/http';
 	GeneralDiscussionsComponent,
 	SupportComponent,
 	ForumHistoryComponent,
+	EditComponent,
     ],
     imports: [
 	BrowserModule,
