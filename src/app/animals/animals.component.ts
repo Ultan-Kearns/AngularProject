@@ -12,10 +12,10 @@ export class AnimalsComponent implements OnInit {
     let forumTitle: String = "Welcome to the animals forum - Talk with fellow animal love!";
   }
 
-  posts: any = [];
+  private posts: any = [];
   private hideElement: boolean;
   private postText: string = "Make Post";
-  private category:string = "Animals";
+  private category: string = "Animals";
   ngOnInit() {
     //get posts on intialization
     this.ps.getPostsData().subscribe(data => {

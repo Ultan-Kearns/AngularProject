@@ -11,9 +11,10 @@ export class HistoryComponent implements OnInit {
   constructor(private ps:PostService) {
     let forumTitle:String = "Welcome to the history forum - History repeats itself";
  }
- posts:any = [];
+ private posts:any = [];
  private hideElement:boolean;
  private postText:string = "Make Post";
+ private category:string = "History"
  ngOnInit() {
   //get posts on intialization
   this.ps.getPostsData().subscribe(data => {
@@ -35,7 +36,7 @@ showPost(){
 }
 onAddPost(form: NgForm) {
   console.log(form.value);
-  this.ps.addPost(form.value.title, form.value.content,"History").subscribe();
+  this.ps.addPost(form.value.title, form.value.content,this.category).subscribe();
   alert("post added");
   form.reset();
   this.ngOnInit();
@@ -45,9 +46,8 @@ onDelete(id:String){
   console.log("Delete called "+ id);
   this.ps.deletePost(id).subscribe(() =>
   {
-    //refresh
-     this.ngOnInit();
   })
   alert("deleted post: " + id);
+  this.ngOnInit();
 }
 }

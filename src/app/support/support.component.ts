@@ -8,7 +8,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./support.component.css']
 })
 export class SupportComponent implements OnInit {
-  posts: any = [];
+  private posts: any = [];
+  private category:string = "Support";
   constructor(private ps: PostService) {
   }
 
@@ -20,7 +21,7 @@ export class SupportComponent implements OnInit {
   }
   onAddPost(form: NgForm) {
     console.log(form.value);
-    this.ps.addPost(form.value.title, form.value.content, "Support").subscribe();
+    this.ps.addPost(form.value.title, form.value.content, this.category).subscribe();
     alert("We'll get working on it straight away thanks :)");
     alert("post added");
     form.reset();
@@ -30,10 +31,9 @@ export class SupportComponent implements OnInit {
   onDelete(id: String) {
     console.log("Delete called " + id);
     this.ps.deletePost(id).subscribe(() => {
-      //refresh view
-      this.ngOnInit();
     })
     alert("deleted post: " + id);
+    this.ngOnInit();
   }
   hideElement: Boolean;
   buttonText: string = "Show bugs to be fixed";

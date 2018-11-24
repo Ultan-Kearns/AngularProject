@@ -11,9 +11,10 @@ export class BooksComponent implements OnInit {
 
   constructor(private ps: PostService) {
   }
-  posts: any = [];
+  private posts: any = [];
   private hideElement: boolean;
   private postText: string = "Make Post";
+  private category:string = "Books";
   ngOnInit() {
     //get posts on intialization
     this.ps.getPostsData().subscribe(data => {
@@ -33,7 +34,7 @@ export class BooksComponent implements OnInit {
   }
   onAddPost(form: NgForm) {
     console.log(form.value);
-    this.ps.addPost(form.value.title, form.value.content, "Books").subscribe();
+    this.ps.addPost(form.value.title, form.value.content, this.category).subscribe();
     alert("post added");
     form.reset();
     this.ngOnInit();
@@ -42,9 +43,8 @@ export class BooksComponent implements OnInit {
   onDelete(id: String) {
     console.log("Delete called " + id);
     this.ps.deletePost(id).subscribe(() => {
-      //refresh view
-      this.ngOnInit();
     })
     alert("deleted post: " + id);
+    this.ngOnInit();
   }
 }

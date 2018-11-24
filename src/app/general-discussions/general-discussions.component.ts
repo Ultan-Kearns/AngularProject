@@ -7,9 +7,10 @@ import { NgForm } from "@angular/forms";
   styleUrls: ['./general-discussions.component.css']
 })
 export class GeneralDiscussionsComponent implements OnInit {
-  posts:any = [];
+  private posts:any = [];
   private hideElement:boolean;
   private postText:string = "Make Post";
+  private category:string = "General";
   constructor(private ps:PostService) {
     let forumTitle:String = "Welcome to the General Discussions forum - A place to relax and chit chat";
 
@@ -36,7 +37,7 @@ export class GeneralDiscussionsComponent implements OnInit {
   }
   onAddPost(form: NgForm) {
     console.log(form.value);
-    this.ps.addPost(form.value.title, form.value.content,"General").subscribe();
+    this.ps.addPost(form.value.title, form.value.content,this.category).subscribe();
     alert("post added");
     form.reset();
     this.ngOnInit();
@@ -46,8 +47,8 @@ export class GeneralDiscussionsComponent implements OnInit {
     console.log("Delete called "+ id);
     this.ps.deletePost(id).subscribe(() =>
     {
-       this.ngOnInit();
     })
-    alert("deleted post: " + id)
+    alert("deleted post: " + id);
+    this.ngOnInit();
   }
 }

@@ -83,6 +83,7 @@
           <p>{{ post.content }}</p>
         </mat-card-content>
         <mat-action-row>
+            <button mat-button [routerLink]="['/edit', post._id]" color="primary">EDIT</button>
           <button mat-button (click)="onDelete(post._id)" color="warn">DELETE</button>
         </mat-action-row>
       </mat-card>

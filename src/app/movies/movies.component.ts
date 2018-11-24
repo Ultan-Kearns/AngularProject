@@ -15,8 +15,8 @@ export class MoviesComponent implements OnInit {
   constructor(private ps: PostService, private route: ActivatedRoute) {
     let forumTitle: String = "Welcome to the movie forum - BRING OUT THE POPCORN!";
   }
-  posts: any = [];
-
+ private posts: any = [];
+private category:string =  "Movies";
   private hideElement: boolean;
   private postText: string = "Make Post";
   ngOnInit() {
@@ -39,7 +39,7 @@ export class MoviesComponent implements OnInit {
   }
   onAddPost(form: NgForm) {
     console.log(form.value);
-    this.ps.addPost(form.value.title, form.value.content, "Movies").subscribe();
+    this.ps.addPost(form.value.title, form.value.content,this.category).subscribe();
     alert("post added");
     form.reset();
     this.ngOnInit();
@@ -48,11 +48,9 @@ export class MoviesComponent implements OnInit {
   onDelete(id: String) {
     console.log("Delete called " + id);
     this.ps.deletePost(id).subscribe(() => {
-      //refresh view
-      this.ngOnInit();
-      this.ngOnInit();
     })
     alert("deleted post: " + id);
+    this.ngOnInit();
   }
 
 }

@@ -11,10 +11,10 @@ import { NgForm } from "@angular/forms";
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  myTitle: string;
-  myContent: string;
-  category: string;
-  post: any = [];
+  private myTitle: string;
+  private myContent: string;
+  private category: string;
+  private post: any = [];
   constructor(private router: Router, private route: ActivatedRoute, private ps: PostService) { }
 
   ngOnInit() {
