@@ -36,14 +36,18 @@ showPost(){
 onAddPost(form: NgForm) {
   console.log(form.value);
   this.ps.addPost(form.value.title, form.value.content,"History").subscribe();
-  alert("post added please refresh page");
+  alert("post added");
+  form.reset();
+  this.ngOnInit();
 }
 
 onDelete(id:String){
   console.log("Delete called "+ id);
   this.ps.deletePost(id).subscribe(() =>
   {
+    //refresh
      this.ngOnInit();
   })
+  alert("deleted post: " + id);
 }
 }

@@ -40,16 +40,19 @@ export class MoviesComponent implements OnInit {
   onAddPost(form: NgForm) {
     console.log(form.value);
     this.ps.addPost(form.value.title, form.value.content, "Movies").subscribe();
+    alert("post added");
+    form.reset();
     this.ngOnInit();
-    alert("post added please refresh page");
   }
 
   onDelete(id: String) {
     console.log("Delete called " + id);
     this.ps.deletePost(id).subscribe(() => {
+      //refresh view
+      this.ngOnInit();
       this.ngOnInit();
     })
-    alert("Post deleted");
+    alert("deleted post: " + id);
   }
 
 }

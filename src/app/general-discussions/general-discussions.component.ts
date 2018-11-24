@@ -37,7 +37,9 @@ export class GeneralDiscussionsComponent implements OnInit {
   onAddPost(form: NgForm) {
     console.log(form.value);
     this.ps.addPost(form.value.title, form.value.content,"General").subscribe();
-    alert("post added please refresh page");
+    alert("post added");
+    form.reset();
+    this.ngOnInit();
   }
 
   onDelete(id:String){
@@ -46,5 +48,6 @@ export class GeneralDiscussionsComponent implements OnInit {
     {
        this.ngOnInit();
     })
+    alert("deleted post: " + id)
   }
 }

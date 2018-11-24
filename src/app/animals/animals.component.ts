@@ -8,45 +8,47 @@ import { NgForm } from "@angular/forms";
 })
 export class AnimalsComponent implements OnInit {
 
-  constructor(private ps:PostService) {
-    let forumTitle:String = "Welcome to the animals forum - Talk with fellow animal love!";
-   }
+  constructor(private ps: PostService) {
+    let forumTitle: String = "Welcome to the animals forum - Talk with fellow animal love!";
+  }
 
-   posts:any = [];
-   private hideElement:boolean;
-   private postText:string = "Make Post";
-   ngOnInit() {
+  posts: any = [];
+  private hideElement: boolean;
+  private postText: string = "Make Post";
+  private category:string = "Animals";
+  ngOnInit() {
     //get posts on intialization
     this.ps.getPostsData().subscribe(data => {
       this.posts = data;
-  });
+    });
   }
-  showPost(){
+  showPost() {
     //show post area to user
-    if(this.hideElement)
-    {
+    if (this.hideElement) {
       this.hideElement = false;
       this.postText = "Make Post";
     }
-    else
-    {
+    else {
       this.hideElement = true;
       this.postText = "Hide post area";
     }
   }
   onAddPost(form: NgForm) {
     console.log(form.value);
-    this.ps.addPost(form.value.title, form.value.content,"Animals").subscribe();
+    this.ps.addPost(form.value.title, form.value.content, this.category).subscribe();
     alert("post added");
+    form.reset();
     this.ngOnInit();
   }
 
-  onDelete(id:String){
-    console.log("Delete called "+ id);
-    this.ps.deletePost(id).subscribe(() =>
-    {
-       this.ngOnInit();
+  onDelete(id: String) {
+    console.log("Delete called " + id);
+    this.ps.deletePost(id).subscribe(() => {
+
     })
+    //refresh view
+    this.ngOnInit();
+    alert("deleted post: " + id)
   }
 
 }

@@ -44,7 +44,6 @@ app.post('/api/posts', function(req, res){
         content: req.body.content,
         category: req.body.category,
     });
-    res.send(200,'Item added');
 
 
 })
@@ -76,7 +75,6 @@ app.put('/api/posts/:id', function(req, res){
 
 app.delete('/api/posts/:id', function(req, res){
     console.log(req.params.id);
-
     PostModel.deleteOne({_id:req.params.id},
     function(err, data)
     {
