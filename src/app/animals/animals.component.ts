@@ -35,10 +35,16 @@ export class AnimalsComponent implements OnInit {
   }
   onAddPost(form: NgForm) {
     console.log(form.value);
-    this.ps.addPost(form.value.title, form.value.content, this.category).subscribe();
+    if(form.valid)
+    {
+    this.ps.addPost(form.value.title, form.value.content,this.category).subscribe();
     alert("post added");
     form.reset();
     this.ngOnInit();
+    }
+    else{
+      alert("FORM INVALID MIN LENGTH OF TITLE AND CONTENT MUST BE 5 CHARACTERS OR OVER")
+    }
   }
 
   onDelete(id: String) {
@@ -46,9 +52,9 @@ export class AnimalsComponent implements OnInit {
     this.ps.deletePost(id).subscribe(() => {
 
     })
-    //refresh view
-    this.ngOnInit();
-    alert("deleted post: " + id)
+    alert("deleted post: " + id);
+        //refresh view
+        this.ngOnInit();
   }
 
 }

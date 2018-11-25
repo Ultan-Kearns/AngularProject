@@ -22,11 +22,11 @@
       <h3>Enter posts here:</h3>
       <mat-form-field id="postTitle">
         <textarea matInput placeholder="Enter post title: " name="title" id="title" ngModel required #title="ngModel" rows="4"
-          minlength="1"></textarea>
+          minlength="5" maxlength="20"></textarea>
       </mat-form-field>
       <mat-form-field>
         <textarea matInput placeholder="Enter post content: " name="content" ngModel required #content="ngModel" rows="4"
-          minlength="1"></textarea>
+          minlength="5" maxlength="50"></textarea>
       </mat-form-field>
       <button mat-raised-button color="accent" type="submit">Submit Post</button>
     </form>

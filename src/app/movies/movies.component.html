@@ -1,32 +1,32 @@
 <div>
   <h1>Movie Forum - Bust out the popcorn!</h1>
   <mat-accordion multi="true" *ngIf="posts.length > 0">
-      <div *ngFor="let post of posts">
-        <div *ngIf="post.category == 'Movies'">
-          <mat-expansion-panel [expanded]="true">
-            <mat-expansion-panel-header>
-              {{ post.title }}
-            </mat-expansion-panel-header>
-            <p>{{ post.content }}</p>
-            <mat-action-row>
-              <button mat-button [routerLink]="['/edit', post._id]" color="primary">EDIT</button>
-              <button mat-button (click)="onDelete(post._id)" color="warn">DELETE</button>
-            </mat-action-row>
-          </mat-expansion-panel>
-        </div>
+    <div *ngFor="let post of posts">
+      <div *ngIf="post.category == 'Movies'">
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            {{ post.title }}
+          </mat-expansion-panel-header>
+          <p>{{ post.content }}</p>
+          <mat-action-row>
+            <button mat-button [routerLink]="['/edit', post._id]" color="primary">EDIT</button>
+            <button mat-button (click)="onDelete(post._id)" color="warn">DELETE</button>
+          </mat-action-row>
+        </mat-expansion-panel>
       </div>
-    </mat-accordion>
-    <p class="info-text mat-body-1" *ngIf="posts.length <= 0">No posts added yet!</p>
-    <button mat-raised-button color="accent" (click)="showPost()" id="postButton">{{postText}}</button>
-    <form (submit)="onAddPost(postForm)" #postForm="ngForm" id="postArea" *ngIf="hideElement">
-      <h3>Enter posts here:</h3>
-      <mat-form-field id="postTitle">
-        <textarea matInput placeholder="Enter post title: " name="title" id="title" ngModel required #title="ngModel" rows="4"
-          minlength="1"></textarea>
-      </mat-form-field>
-      <mat-form-field>
-        <textarea matInput placeholder="Enter post content: " name="content" ngModel required #content="ngModel" rows="4"
-          minlength="1"></textarea>
-      </mat-form-field>
-      <button mat-raised-button color="accent" type="submit">Submit Post</button>
-</form>
+    </div>
+  </mat-accordion>
+  <p class="info-text mat-body-1" *ngIf="posts.length <= 0">No posts added yet!</p>
+  <button mat-raised-button color="accent" (click)="showPost()" id="postButton">{{postText}}</button>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm" id="postArea" *ngIf="hideElement">
+    <h3>Enter posts here:</h3>
+    <mat-form-field id="postTitle">
+      <textarea matInput placeholder="Enter post title: " name="title" id="title" ngModel #title="ngModel" rows="4"
+        required minlength="5" maxlength="20"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Enter post content: " name="content" ngModel #content="ngModel" rows="4" required
+        minlength="5" maxlength="50"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Submit Post</button>
+  </form>

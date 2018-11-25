@@ -25,13 +25,25 @@ export class EditComponent implements OnInit {
       this.post = data;
       this.myTitle = this.post.title;
     });
+    this.ps.getPost(this.post.id).subscribe(data =>{
+      this.category = data;
+      console.log(data);
+    });
+    console.log("Data");
   }
   //need function to edit post on click
   editPosts(form: NgForm) {
-    console.log("IN EDIT + PID " + this.post.id + " " + this.category);
+    if(form.valid)
+    {
+    console.log("IN EDIT + PID " + this.post.id + " " + this.post.category);
     this.ps.editPost(this.post.id, form.value.title, form.value.content, this.category).subscribe(() => {
-
     });
-    this.router.navigate['/General'];
+   this.router.navigateByUrl('/');
+  }
+  else{
+    alert("Post invalid content and title must be 5 character minimum");
+    //need this as an error occurs where posts disappear or appear unedited
+    this.router.navigateByUrl('/edit');
+  }
   }
 }

@@ -1,9 +1,9 @@
 <form (submit)="editPosts(postForm)" #postForm="ngForm">
   <mat-form-field>
-    <input matInput type="text" name="title" ngModel={{post.title}} required #title="ngModel" placeholder="Enter post title: ">
+    <input matInput type="text" name="title" ngModel={{post.title}} required #title="ngModel" placeholder="Enter post title: " maxlength="20" minlength="5">
   </mat-form-field>
   <mat-form-field>
-    <textarea matInput rows="4" name="content" ngModel={{post.content}} required #content="ngModel" placeholder="Enter post content: ">
+    <textarea matInput rows="4" name="content" ngModel={{post.content}} required #content="ngModel" placeholder="Enter post content: " maxlength="50" minlength="5">
       </textarea>
     <mat-error *ngIf="content.invalid">Please enter a post title.</mat-error>
   </mat-form-field>

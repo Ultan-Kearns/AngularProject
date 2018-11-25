@@ -61,11 +61,11 @@
   <h3>Title of complaint:</h3>
   <mat-form-field id="postTitle">
     <textarea matInput placeholder="Enter subject of complaint: " name="title" id="title" ngModel required #title="ngModel"
-      rows="4" minlength="1"></textarea>
+      rows="4" minlength="5" maxlength="20"></textarea>
   </mat-form-field>
   <mat-form-field>
     <textarea matInput placeholder="Enter details of complaint: " name="content" ngModel required #content="ngModel"
-      rows="4" minlength="1"></textarea>
+      rows="4" minlength="5" maxlength="50"></textarea>
   </mat-form-field>
   <br>
   <button mat-raised-button color="accent" matTooltip="Submit to dev team">Submit</button>

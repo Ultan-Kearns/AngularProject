@@ -36,10 +36,16 @@ showPost(){
 }
 onAddPost(form: NgForm) {
   console.log(form.value);
+  if(form.valid)
+  {
   this.ps.addPost(form.value.title, form.value.content,this.category).subscribe();
   alert("post added");
   form.reset();
   this.ngOnInit();
+  }
+  else{
+    alert("FORM INVALID MIN LENGTH OF TITLE AND CONTENT MUST BE 5 CHARACTERS OR OVER")
+  }
 }
 
 onDelete(id:String){
