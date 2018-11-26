@@ -31,7 +31,7 @@ app.use(function(req, res, next) {
     });
 
 app.get('/', function (req, res) {
-   res.send('Server works');
+   res.send(200,'Server works');
 })
 
 app.post('/api/posts', function(req, res){
@@ -44,7 +44,7 @@ app.post('/api/posts', function(req, res){
         content: req.body.content,
         category: req.body.category,
     });
-
+    res.send(200,"Post added")
 
 })
 
@@ -60,6 +60,10 @@ app.get('/api/posts/:id', function(req, res){
     //PostModel.find({_id : req.params.id},
     PostModel.findById(req.params.id,
         function (err, data) {
+            if(err)
+            res.status(500, "Error: " + data)
+            else
+            res.status(200, "Post read")
         });
 })
 
@@ -70,7 +74,12 @@ app.put('/api/posts/:id', function(req, res){
 
     PostModel.findByIdAndUpdate(req.params.id, req.body,
         function(err, data){
+            if(err)
+            res.status(500,"Couldn't update post " + err)
+            else
+            res.status(200,"Updated Post")
         })
+        
 })
 
 app.delete('/api/posts/:id', function(req, res){
@@ -79,7 +88,9 @@ app.delete('/api/posts/:id', function(req, res){
     function(err, data)
     {
         if(err)
-            res.send('Error deleting post');
+            res.status(500,'Error deleting post');
+            else
+                res.status(200,'Deleted Post')
     })
 })
 

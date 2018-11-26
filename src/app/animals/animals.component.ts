@@ -38,6 +38,7 @@ export class AnimalsComponent implements OnInit {
   }
   onAddPost(form: NgForm) {
     console.log(form.value);
+    //check if forum valid
     if(form.valid)
     {
     this.ps.addPost(form.value.title, form.value.content,this.category).subscribe();
