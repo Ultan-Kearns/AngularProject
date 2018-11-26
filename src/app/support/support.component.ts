@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { NgForm } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-support',
@@ -10,7 +11,7 @@ import { NgForm } from '@angular/forms';
 export class SupportComponent implements OnInit {
   private posts: any = [];
   private category:string = "Support";
-  constructor(private ps: PostService) {
+  constructor(private ps: PostService,private ts:Title) {
   }
 
   ngOnInit() {
@@ -18,6 +19,8 @@ export class SupportComponent implements OnInit {
     this.ps.getPostsData().subscribe(data => {
       this.posts = data;
     });
+    this.ts.setTitle(this.category)
+    this.ts.getTitle();
   }
   onAddPost(form: NgForm) {
     console.log(form.value);

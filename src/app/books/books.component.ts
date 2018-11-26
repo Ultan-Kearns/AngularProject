@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { NgForm } from "@angular/forms";
-import { ResourceLoader } from '@angular/compiler';
+import {Title} from '@angular/platform-browser';
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -9,7 +9,7 @@ import { ResourceLoader } from '@angular/compiler';
 })
 export class BooksComponent implements OnInit {
 
-  constructor(private ps: PostService) {
+  constructor(private ps: PostService,private ts:Title) {
   }
   private posts: any = [];
   private hideElement: boolean;
@@ -20,6 +20,8 @@ export class BooksComponent implements OnInit {
     this.ps.getPostsData().subscribe(data => {
       this.posts = data;
     });
+    this.ts.setTitle(this.category)
+    this.ts.getTitle();
   }
   showPost() {
     //show post area to user

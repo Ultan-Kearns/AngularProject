@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { PostService } from '../services/post.service';
 import { NgForm } from "@angular/forms";
-
+import {Title} from '@angular/platform-browser';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -15,7 +15,7 @@ export class EditComponent implements OnInit {
   private myContent: string;
   private category: string;
   private post: any = [];
-  constructor(private router: Router, private route: ActivatedRoute, private ps: PostService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private ps: PostService,private ts:Title) { }
 
   ngOnInit() {
     console.log("this is the ID " + this.route.snapshot.params['id']);
@@ -30,6 +30,8 @@ export class EditComponent implements OnInit {
       console.log(data);
     });
     console.log("Data");
+    this.ts.setTitle("Edit")
+    this.ts.getTitle();
   }
   //need function to edit post on click
   editPosts(form: NgForm) {

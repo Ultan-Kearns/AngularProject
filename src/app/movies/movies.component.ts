@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { PostService } from '../services/post.service';
 import { NgForm } from "@angular/forms";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-movies',
@@ -12,7 +13,7 @@ import { NgForm } from "@angular/forms";
 })
 
 export class MoviesComponent implements OnInit {
-  constructor(private ps: PostService, private route: ActivatedRoute) {
+  constructor(private ps: PostService, private route: ActivatedRoute,private ts:Title) {
     let forumTitle: String = "Welcome to the movie forum - BRING OUT THE POPCORN!";
   }
  private posts: any = [];
@@ -24,6 +25,8 @@ private category:string =  "Movies";
     this.ps.getPostsData().subscribe(data => {
       this.posts = data;
     });
+    this.ts.setTitle(this.category)
+    this.ts.getTitle();
   }
   showPost() {
     //add hide button to forums for each post

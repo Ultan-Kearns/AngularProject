@@ -29,7 +29,7 @@ const routes: Routes = [
     path: 'forumHistory', component: ForumHistoryComponent
   },
   {
-    path: 'support', component: SupportComponent
+    path: 'support', component: SupportComponent,data:{title:"Support"}
   },
   {
     path: 'edit/:id',

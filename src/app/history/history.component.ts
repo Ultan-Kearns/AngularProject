@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PostService} from '../services/post.service';
 import { NgForm } from "@angular/forms";
+import {Title} from '@angular/platform-browser';
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
@@ -8,7 +9,7 @@ import { NgForm } from "@angular/forms";
 })
 export class HistoryComponent implements OnInit {
 
-  constructor(private ps:PostService) {
+  constructor(private ps:PostService,private ts:Title) {
     let forumTitle:String = "Welcome to the history forum - History repeats itself";
  }
  private posts:any = [];
@@ -20,6 +21,8 @@ export class HistoryComponent implements OnInit {
   this.ps.getPostsData().subscribe(data => {
     this.posts = data;
 });
+this.ts.setTitle(this.category)
+this.ts.getTitle();
 }
 showPost(){
   //show post area to user

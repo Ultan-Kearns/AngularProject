@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PostService} from '../services/post.service';
 import { NgForm } from "@angular/forms";
+import {Title} from '@angular/platform-browser';
 @Component({
   selector: 'app-general-discussions',
   templateUrl: './general-discussions.component.html',
@@ -11,7 +12,7 @@ export class GeneralDiscussionsComponent implements OnInit {
   private hideElement:boolean;
   private postText:string = "Make Post";
   private category:string = "General";
-  constructor(private ps:PostService) {
+  constructor(private ps:PostService,private ts:Title) {
     let forumTitle:String = "Welcome to the General Discussions forum - A place to relax and chit chat";
 
   }
@@ -21,6 +22,8 @@ export class GeneralDiscussionsComponent implements OnInit {
     this.ps.getPostsData().subscribe(data => {
       this.posts = data;
   });
+  this.ts.setTitle(this.category)
+  this.ts.getTitle();
   }
   showPost(){
     //show post area to user

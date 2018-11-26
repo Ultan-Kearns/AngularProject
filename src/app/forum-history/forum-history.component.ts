@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Title} from '@angular/platform-browser';
 @Component({
   selector: 'app-forum-history',
   templateUrl: './forum-history.component.html',
@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForumHistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ts:Title) { }
 
   ngOnInit() {
+    this.ts.setTitle("Forum History")
+    this.ts.getTitle();
   }
 
 }
