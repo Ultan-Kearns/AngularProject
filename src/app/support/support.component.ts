@@ -10,8 +10,8 @@ import { Title } from '@angular/platform-browser';
 })
 export class SupportComponent implements OnInit {
   private posts: any = [];
-  private category:string = "Support";
-  constructor(private ps: PostService,private ts:Title) {
+  private category: string = "Support";
+  constructor(private ps: PostService, private ts: Title) {
   }
 
   ngOnInit() {
@@ -24,14 +24,13 @@ export class SupportComponent implements OnInit {
   }
   onAddPost(form: NgForm) {
     console.log(form.value);
-    if(form.valid)
-    {
-    this.ps.addPost(form.value.title, form.value.content,this.category).subscribe();
-    alert("post added");
-    form.reset();
-    this.ngOnInit();
+    if (form.valid) {
+      this.ps.addPost(form.value.title, form.value.content, this.category).subscribe();
+      form.reset();
+      alert("post added");
+      this.ngOnInit();
     }
-    else{
+    else {
       alert("FORM INVALID MIN LENGTH OF TITLE AND CONTENT MUST BE 5 CHARACTERS OR OVER")
     }
   }

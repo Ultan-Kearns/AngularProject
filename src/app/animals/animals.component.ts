@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { NgForm } from "@angular/forms";
-import {Title} from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-animals',
   templateUrl: './animals.component.html',
@@ -9,7 +9,7 @@ import {Title} from '@angular/platform-browser';
 })
 export class AnimalsComponent implements OnInit {
 
-  constructor(private ps: PostService,private ts:Title) {
+  constructor(private ps: PostService, private ts: Title) {
     let forumTitle: String = "Welcome to the animals forum - Talk with fellow animal love!";
   }
 
@@ -39,14 +39,13 @@ export class AnimalsComponent implements OnInit {
   onAddPost(form: NgForm) {
     console.log(form.value);
     //check if forum valid
-    if(form.valid)
-    {
-    this.ps.addPost(form.value.title, form.value.content,this.category).subscribe();
-    alert("post added");
-    form.reset();
-    this.ngOnInit();
+    if (form.valid) {
+      this.ps.addPost(form.value.title, form.value.content, this.category).subscribe();
+      form.reset();
+      alert("post added");
+      this.ngOnInit();
     }
-    else{
+    else {
       alert("FORM INVALID MIN LENGTH OF TITLE AND CONTENT MUST BE 5 CHARACTERS OR OVER")
     }
   }
@@ -57,8 +56,8 @@ export class AnimalsComponent implements OnInit {
 
     })
     alert("deleted post: " + id);
-        //refresh view
-        this.ngOnInit();
+    //refresh view
+    this.ngOnInit();
   }
 
 }

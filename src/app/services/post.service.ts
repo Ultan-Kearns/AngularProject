@@ -20,16 +20,16 @@ export class PostService {
   }
 
   deletePost(id: String): Observable<any> {
-    console.log("Deleting post " +id);
+    console.log("Deleting post " + id);
     return this.http.delete("http://localhost:8081/api/posts/" + id);
   }
-  getPost(id:String): Observable<any> {
-    return this.http.get("http://localhost:8081/api/posts/"+id);
+  getPost(id: String): Observable<any> {
+    return this.http.get("http://localhost:8081/api/posts/" + id);
   }
-  editPost(id:String,title:string, content:string,category:string){
+  editPost(id: String, title: string, content: string, category: string) {
     //id is undefined
-    const post: Post = {title: title, content: content,category: category};
-    console.log("EDITING POST IN POST SERVICE "+ post.title + " " + id + " " + post.content);
-    return this.http.put("http://localhost:8081/api/posts/"+ id, post);
+    const post: Post = { title: title, content: content, category: category };
+    console.log("EDITING POST IN POST SERVICE " + post.title + " " + id + " " + post.content);
+    return this.http.put("http://localhost:8081/api/posts/" + id, post);
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../services/post.service';
 import { NgForm } from "@angular/forms";
-import {Title} from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -9,12 +9,12 @@ import {Title} from '@angular/platform-browser';
 })
 export class BooksComponent implements OnInit {
 
-  constructor(private ps: PostService,private ts:Title) {
+  constructor(private ps: PostService, private ts: Title) {
   }
   private posts: any = [];
   private hideElement: boolean;
   private postText: string = "Make Post";
-  private category:string = "Books";
+  private category: string = "Books";
   ngOnInit() {
     //get posts on intialization
     this.ps.getPostsData().subscribe(data => {
@@ -36,14 +36,13 @@ export class BooksComponent implements OnInit {
   }
   onAddPost(form: NgForm) {
     console.log(form.value);
-    if(form.valid)
-    {
-    this.ps.addPost(form.value.title, form.value.content,this.category).subscribe();
-    alert("post added");
-    form.reset();
-    this.ngOnInit();
+    if (form.valid) {
+      this.ps.addPost(form.value.title, form.value.content, this.category).subscribe();
+      form.reset();
+      alert("post added");
+      this.ngOnInit();
     }
-    else{
+    else {
       alert("FORM INVALID MIN LENGTH OF TITLE AND CONTENT MUST BE 5 CHARACTERS OR OVER")
     }
   }

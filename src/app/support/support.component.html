@@ -62,19 +62,19 @@
   <mat-form-field id="postTitle">
     <textarea matInput placeholder="Enter subject of complaint: " name="title" id="title" ngModel required #title="ngModel"
       rows="4" minlength="5" maxlength="20"></textarea>
-      <mat-error *ngIf="content.invalid">Please enter a post title > 5 characters</mat-error>
+    <mat-error *ngIf="content.invalid">Please enter a post title > 5 characters</mat-error>
   </mat-form-field>
   <mat-form-field>
     <textarea matInput placeholder="Enter details of complaint: " name="content" ngModel required #content="ngModel"
       rows="4" minlength="5" maxlength="50"></textarea>
-      <mat-error *ngIf="content.invalid">Please enter a post content > 5 characters</mat-error>
+    <mat-error *ngIf="content.invalid">Please enter a post content > 5 characters</mat-error>
   </mat-form-field>
   <br>
   <button mat-raised-button color="accent" matTooltip="Submit to dev team">Submit</button>
 </form>
-<button id="showBugs" (click) = "showBugs()">{{buttonText}}</button>
+<button id="showBugs" (click)="showBugs()">{{buttonText}}</button>
 <h3>Error list to fix developers</h3>
-<div *ngIf = "hideElement">
+<div *ngIf="hideElement">
   <div *ngFor="let post of posts">
     <div *ngIf="post.category == 'Support'">
       <mat-card>
@@ -85,7 +85,7 @@
           <p>{{ post.content }}</p>
         </mat-card-content>
         <mat-action-row>
-            <button mat-button [routerLink]="['/edit', post._id]" color="primary">EDIT</button>
+          <button mat-button [routerLink]="['/edit', post._id]" color="primary">EDIT</button>
           <button mat-button (click)="onDelete(post._id)" color="warn">DELETE</button>
         </mat-action-row>
       </mat-card>

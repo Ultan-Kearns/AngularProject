@@ -3,16 +3,16 @@
 <mat-accordion multi="true" *ngIf="posts.length > 0">
   <div *ngFor="let post of posts">
     <div *ngIf="post.category == 'Animals'">
- <mat-expansion-panel [expanded]="true">
-    <mat-expansion-panel-header>
-      {{ post.title }}
-    </mat-expansion-panel-header>
-    <p>{{ post.content }}</p>
-    <mat-action-row>
-      <button mat-button [routerLink]="['/edit',post._id]" color="primary">EDIT</button>
-      <button mat-button (click)="onDelete(post._id)" color="warn">DELETE</button>
-    </mat-action-row>
-  </mat-expansion-panel>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          {{ post.title }}
+        </mat-expansion-panel-header>
+        <p>{{ post.content }}</p>
+        <mat-action-row>
+          <button mat-button [routerLink]="['/edit',post._id]" color="primary">EDIT</button>
+          <button mat-button (click)="onDelete(post._id)" color="warn">DELETE</button>
+        </mat-action-row>
+      </mat-expansion-panel>
     </div>
   </div>
 </mat-accordion>
@@ -23,12 +23,12 @@
   <mat-form-field id="postTitle">
     <textarea matInput placeholder="Enter post title: " name="title" id="title" ngModel required #title="ngModel" rows="4"
       minlength="5" maxlength="50"></textarea>
-      <mat-error *ngIf="content.invalid">Please enter a post title > 5 characters</mat-error>
+    <mat-error *ngIf="content.invalid">Please enter a post title > 5 characters</mat-error>
   </mat-form-field>
   <mat-form-field>
     <textarea matInput placeholder="Enter post content: " name="content" ngModel required #content="ngModel" rows="4"
       minlength="5" maxlength="50"></textarea>
-      <mat-error *ngIf="content.invalid">Please enter a post content > 5 characters</mat-error>
+    <mat-error *ngIf="content.invalid">Please enter a post content > 5 characters</mat-error>
   </mat-form-field>
   <button mat-raised-button color="accent" type="submit">Submit Post</button>
 </form>

@@ -13,11 +13,11 @@ import { Title } from '@angular/platform-browser';
 })
 
 export class MoviesComponent implements OnInit {
-  constructor(private ps: PostService, private route: ActivatedRoute,private ts:Title) {
+  constructor(private ps: PostService, private route: ActivatedRoute, private ts: Title) {
     let forumTitle: String = "Welcome to the movie forum - BRING OUT THE POPCORN!";
   }
- private posts: any = [];
-private category:string =  "Movies";
+  private posts: any = [];
+  private category: string = "Movies";
   private hideElement: boolean;
   private postText: string = "Make Post";
   ngOnInit() {
@@ -42,14 +42,13 @@ private category:string =  "Movies";
   }
   onAddPost(form: NgForm) {
     console.log(form.value);
-    if(form.valid)
-    {
-    this.ps.addPost(form.value.title, form.value.content,this.category).subscribe();
-    alert("post added");
-    form.reset();
-    this.ngOnInit();
+    if (form.valid) {
+      this.ps.addPost(form.value.title, form.value.content, this.category).subscribe();
+      form.reset();
+      alert("post added");
+      this.ngOnInit();
     }
-    else{
+    else {
       alert("FORM INVALID MIN LENGTH OF TITLE AND CONTENT MUST BE 5 CHARACTERS OR OVER")
     }
   }
