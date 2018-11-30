@@ -44,7 +44,7 @@ app.post('/api/posts', function (req, res) {
         content: req.body.content,
         category: req.body.category,
     });
-    res.send(200, "Post added")
+    res.send(201, "Post added")
 
 })
 
